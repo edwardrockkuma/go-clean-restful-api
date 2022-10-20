@@ -33,3 +33,15 @@ func (c *userDatabase) FindById(ctx context.Context, id uint) (domain.User, erro
 
 	return user, err
 }
+
+func (c *userDatabase) Save(ctx context.Context, user domain.User) (domain.User, error) {
+	err := c.DB.Save(&user).Error
+
+	return user, err
+}
+
+func (c *userDatabase) Delete(ctx context.Context, user domain.User) error {
+	err := c.DB.Save(&user).Error
+
+	return err
+}
